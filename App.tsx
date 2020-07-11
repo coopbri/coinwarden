@@ -1,10 +1,7 @@
 import React from "react";
-import { View, Text } from "react-native";
+
+import Navigator from "./navigation/Navigator";
 
 export default function App() {
-  return (
-    <View>
-      <Text>App.tsx</Text>
-    </View>
-  );
+  return <Navigator />;
 }
