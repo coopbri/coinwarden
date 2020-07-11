@@ -1,5 +1,11 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { View, FlatList, ActivityIndicator, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  FlatList,
+  ActivityIndicator,
+  StyleSheet,
+} from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
 import * as coinActions from "../store/actions/coins";
@@ -30,14 +36,14 @@ const OverviewScreen = () => {
   // display loading spinner if fetching data
   if (isLoading) {
     return (
-      <View style={styles.centered}>
+      <View style={styles.loadingIcon}>
         <ActivityIndicator size="large" color={Colors.primary} />
       </View>
     );
   }
 
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList
         data={coins}
         renderItem={(coin) => (
@@ -51,17 +57,30 @@ const OverviewScreen = () => {
         )}
         style={styles.list}
       />
+      <View style={styles.footer}>
+        <Text style={styles.footerText}>Powered by CoinGecko</Text>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  centered: {
+  loadingIcon: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
   },
+  container: { flex: 1 },
   list: { paddingTop: 10 },
+  footer: {
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: Colors.primary,
+    paddingVertical: 5,
+  },
+  footerText: {
+    color: "white",
+  },
 });
 
 export default OverviewScreen;
