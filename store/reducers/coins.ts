@@ -21,6 +21,7 @@ export default (state = initialState, action) => {
         hasError: false,
         errorMessage: null,
       });
+    // data fetch success
     case FETCH_COIN_DATA_SUCCESS:
       return Object.assign({}, state, {
         isFetching: false,
@@ -28,6 +29,7 @@ export default (state = initialState, action) => {
         hasError: false,
         errorMessage: null,
       });
+    // data fetch failure
     case FETCH_COIN_DATA_FAIL:
       return Object.assign({}, state, {
         isFetching: false,
