@@ -1,33 +1,29 @@
-import React, { useState } from "react";
-import { createStore, combineReducers, applyMiddleware } from "redux";
-import { Provider } from "react-redux";
-import ReduxThunk from "redux-thunk";
+import AppLoading from "expo-app-loading";
 import * as Font from "expo-font";
-import { AppLoading } from "expo";
+import React, { useState } from "react";
+import { Provider } from "react-redux";
 
-import Navigator from "./navigation/Navigator";
-import coinsReducer from "./store/reducers/coins";
-
-// flatten reducers
-const rootReducer = combineReducers({
-  coins: coinsReducer,
-});
-
-// create Redux store
-const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
+import Navigator from "./src/navigation/Navigator";
+import { store } from "./src/store";
 
 // load fonts
 const fetchFonts = () => {
   return Font.loadAsync({
-    "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
-    "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
+    openSans: require("./assets/fonts/OpenSans-Regular.ttf"),
+    openSansBold: require("./assets/fonts/OpenSans-Bold.ttf"),
     lobster: require("./assets/fonts/Lobster-Regular.ttf"),
+    MaterialIcons: require("./assets/fonts/MaterialIcons-Regular.ttf"),
   });
 };
 
-export default function App() {
+/**
+ * Main app entrypoint for React Native JavaScript bridge.
+ */
+const App: React.FC = () => {
+  // state
   const [dataLoaded, setDataLoaded] = useState(false);
 
+  // display loading screen while loading
   if (!dataLoaded) {
     return (
       <AppLoading
@@ -39,8 +35,12 @@ export default function App() {
   }
 
   return (
+    // redux store provider
     <Provider store={store}>
+      {/* navigation setup */}
       <Navigator />
     </Provider>
   );
-}
+};
+
+export default App;

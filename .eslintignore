@@ -1,0 +1,5 @@
+.expo/
+assets/
+node_modules/
+*.test.*
+babel.config.ts

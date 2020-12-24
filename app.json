@@ -1,0 +1,25 @@
+{
+  "expo": {
+    "name": "Coinwarden",
+    "slug": "coinwarden",
+    "version": "0.1.0",
+    "icon": "./assets/img/logo_1024x1024.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/img/splash.png",
+      "backgroundColor": "#f5ad42"
+    },
+    "android": {
+      "package": "com.coopbri.coinwarden",
+      "versionCode": 1
+    },
+    "ios": {
+      "bundleIdentifier": "com.coopbri.coinwarden",
+      "buildNumber": "0.1.0"
+    },
+    "androidNavigationBar": {
+      "barStyle": "light-content",
+      "backgroundColor": "#f5ad42"
+    }
+  }
+}
