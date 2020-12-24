@@ -21,7 +21,14 @@ const Navigator = () => {
         <Stack.Screen
           name="Overview"
           component={OverviewScreen}
-          options={{ title: "Coinwarden" }}
+          options={{
+            title: "Coinwarden",
+            headerTitleStyle: {
+              fontFamily: "lobster",
+              fontSize: 32,
+            },
+            headerTitleAlign: "center",
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>
