@@ -7,7 +7,7 @@
 
 <hr>
 
-Coinwarden is a cryptocurrency price tracking application.
+Coinwarden is a cryptocurrency tracking application.
 
 ### Roadmap
 Coinwarden is under active development, and is therefore minimal in its current state. There are several features planned, such as:
