@@ -12,7 +12,10 @@ const fetchFonts = () => {
     openSans: require("./assets/fonts/OpenSans-Regular.ttf"),
     openSansBold: require("./assets/fonts/OpenSans-Bold.ttf"),
     lobster: require("./assets/fonts/Lobster-Regular.ttf"),
+    // required for react-native-elements (Android)
     MaterialIcons: require("./assets/fonts/MaterialIcons-Regular.ttf"),
+    // required for react-native-elements (iOS)
+    "Material Icons": require("./assets/fonts/MaterialIcons-Regular.ttf"),
   });
 };
 

@@ -11,7 +11,8 @@
     },
     "android": {
       "package": "com.coopbri.coinwarden",
-      "versionCode": 1
+      "versionCode": 1,
+      "permissions": []
     },
     "ios": {
       "bundleIdentifier": "com.coopbri.coinwarden",
