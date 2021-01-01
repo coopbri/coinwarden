@@ -10,9 +10,9 @@ import OverviewScreen from "../screens/OverviewScreen";
 // default stack navigator options
 const defaultStackNavOptions = {
   headerStyle: {
-    backgroundColor: Platform.OS === "android" ? theme.colors.primary : "",
+    backgroundColor: theme.colors.primary,
   },
-  headerTintColor: Platform.OS === "android" ? "white" : theme.colors.primary,
+  headerTintColor: "white",
 };
 
 /**

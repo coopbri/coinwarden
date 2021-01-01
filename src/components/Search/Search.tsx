@@ -27,7 +27,7 @@ const Search: React.FC<Props> = ({ query, setQuery, data }: Props) => {
       {/* search bar */}
       <SearchBar
         placeholder="Search for a cryptocurrency..."
-        onChangeText={(query: string) => setQuery(query)}
+        onChangeText={(query: string) => query && setQuery(query)}
         value={query}
         containerStyle={{
           borderTopColor: "transparent",

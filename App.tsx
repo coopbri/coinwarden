@@ -1,10 +1,13 @@
+import React, { useEffect, useState } from "react";
+import { Platform } from "react-native";
 import AppLoading from "expo-app-loading";
 import * as Font from "expo-font";
-import React, { useState } from "react";
+import changeNavigationBarColor from "react-native-navigation-bar-color";
 import { Provider } from "react-redux";
 
 import Navigator from "./src/navigation/Navigator";
 import { store } from "./src/store";
+import theme from "./src/lib/theme";
 
 // load fonts
 const fetchFonts = () => {
@@ -13,20 +16,26 @@ const fetchFonts = () => {
     openSansBold: require("./assets/fonts/OpenSans-Bold.ttf"),
     lobster: require("./assets/fonts/Lobster-Regular.ttf"),
     // required for react-native-elements (Android)
-    MaterialIcons: require("./assets/fonts/MaterialIcons-Regular.ttf"),
+    MaterialIcons: require("@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/MaterialIcons.ttf"),
     // required for react-native-elements (iOS)
-    "Material Icons": require("./assets/fonts/MaterialIcons-Regular.ttf"),
+    "Material Icons": require("@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/MaterialIcons.ttf"),
   });
 };
 
 /**
- * Main app entrypoint for React Native JavaScript bridge.
+ * Master app component.
  */
 const App: React.FC = () => {
   // state
   const [dataLoaded, setDataLoaded] = useState(false);
 
-  // display loading screen while loading
+  useEffect(() => {
+    // set Android navigation bar color
+    Platform.OS === "android" &&
+      changeNavigationBarColor(theme.colors.primary, false, true);
+  }, []);
+
+  // display loading screen while loading fonts
   if (!dataLoaded) {
     return (
       <AppLoading

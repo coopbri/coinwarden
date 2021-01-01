@@ -3,7 +3,7 @@ import { View, Image } from "react-native";
 import styled from "styled-components";
 
 import { formatPrice } from "../../lib/util/number";
-import { capitalize, removeDashes } from "../../lib/util/string";
+import { formatName } from "../../lib/util/string";
 import Text from "../Text/Text";
 
 interface Props {
@@ -30,7 +30,7 @@ const CoinCard: React.FC<Props> = ({ image, symbol, name, price }: Props) => {
         <Icon source={{ uri: image }} />
         <Symbol>{symbol.toUpperCase()}</Symbol>
         <Separator color="#d1d1d1">|</Separator>
-        <Name>{removeDashes(capitalize(name))}</Name>
+        <Name>{formatName(name)}</Name>
       </MainCoinData>
 
       {/* display USD price with commas */}
@@ -52,6 +52,7 @@ const Card = styled(View)`
 
 const MainCoinData = styled(View)`
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
 `;
 

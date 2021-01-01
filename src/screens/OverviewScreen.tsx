@@ -1,15 +1,10 @@
 import React, { ElementType, useEffect, useRef, useState } from "react";
-import {
-  View,
-  FlatList,
-  ActivityIndicator,
-  RefreshControl,
-  Button,
-} from "react-native";
+import { View, ActivityIndicator, RefreshControl } from "react-native";
+import { FlatList } from "react-native-gesture-handler";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 
-import { CoinCard, Search, Text } from "../components";
+import { Button, CoinCard, Search, Text } from "../components";
 import theme from "../lib/theme";
 import { Coins } from "../lib/types";
 import { getCoins } from "../store/slices/coins";
@@ -24,7 +19,7 @@ const OverviewScreen: React.FC = () => {
   const dispatch = useDispatch();
 
   // refs
-  const listRef = useRef<FlatList>(null);
+  const listRef = useRef<FlatList<ElementType>>(null);
 
   // state
   const [initialLoad, setInitialLoad] = useState<boolean>(true);
@@ -120,11 +115,10 @@ const OverviewScreen: React.FC = () => {
       {/* scroll to top button (appears if y-offset >= threshold) */}
       {!atTop && (
         <Button
-          title="SCROLL TO TOP"
+          text="SCROLL TO TOP"
           onPress={() => {
             listRef.current?.scrollToOffset({ animated: true, offset: 0 });
           }}
-          color={theme.colors.background}
         />
       )}
 
