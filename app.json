@@ -2,7 +2,7 @@
   "expo": {
     "name": "Coinwarden",
     "slug": "coinwarden",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "icon": "./assets/img/logo_1024x1024.png",
     "userInterfaceStyle": "automatic",
     "splash": {
@@ -11,12 +11,12 @@
     },
     "android": {
       "package": "com.coopbri.coinwarden",
-      "versionCode": 2,
+      "versionCode": 3,
       "permissions": []
     },
     "ios": {
       "bundleIdentifier": "com.coopbri.coinwarden",
-      "buildNumber": "0.1.1"
+      "buildNumber": "0.1.2"
     },
     "androidNavigationBar": {
       "barStyle": "light-content",
