@@ -27,7 +27,7 @@ const Search: React.FC<Props> = ({ query, setQuery, data }: Props) => {
       {/* search bar */}
       <SearchBar
         placeholder="Search for a cryptocurrency..."
-        onChangeText={(query: string) => query && setQuery(query)}
+        onChangeText={(query: string) => setQuery(query)}
         value={query}
         containerStyle={{
           borderTopColor: "transparent",
@@ -40,7 +40,7 @@ const Search: React.FC<Props> = ({ query, setQuery, data }: Props) => {
       />
 
       {/* display error if no coins match query */}
-      {data.length <= 0 && query && (
+      {data.length <= 0 && query !== null && (
         <ErrorContainer>
           <ErrorText>No coins found!</ErrorText>
         </ErrorContainer>
